@@ -1,0 +1,21 @@
+{% extends 'url_shortener/bootstrap_base.html' %}
+
+{% load widget_tweaks %}
+
+{% block body_block %}
+    <div class="container center-block mb-4">
+        <form class="form-signin" action="{% url 'index' %}" method="post">
+            {% csrf_token %}
+            <div class="text-center mb-4">
+                <h1 class="h3 mb-3 font-weight-normal">URL Shortener</h1>
+            </div>
+            <div class="form-label-group">
+                {% render_field form.url class="form-control" %}
+                <small class="form-text text-muted">Please enter the URL you wish to shorten.</small>
+            </div>
+    
+            <button class="btn btn-lg btn-primary btn-block" type="submit"
+    value="Submit" />Shorten it!</button>
+        </form>
+    </div>
+{% endblock %}

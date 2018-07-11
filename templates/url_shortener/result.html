@@ -1,0 +1,17 @@
+{% extends 'url_shortener/bootstrap_base.html' %}
+
+{% block body_block %}
+    <div class="container center-block mb-4">
+        {% if url %}
+            <h2 class="h3 mb-3 font-weight-normal text-center">Result:</h2>
+            <p class="h4 mb-3 font-weight-normal text-center">{{ url }}</p>
+        {% else %}
+            {% if no_letters %}
+                <h2 class="h3 mb-3 font-weight-normal text-center">Sorry, we couldn't shorten your URL.<br />
+                We ran out of available short paths! :-(</h2>
+            {% else %}
+                <h2 class="h3 mb-3 font-weight-normal text-center">Oh my, no URL was provided! Please go back and try again.</h2>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}
