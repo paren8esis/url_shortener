@@ -7,6 +7,7 @@ class Letter(models.Model):
     '''
     letter = models.CharField(max_length=1, unique=True)
     current_index = models.IntegerField(default=0)
+    num_words = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.letter

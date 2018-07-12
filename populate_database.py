@@ -47,16 +47,17 @@ def populate(file_path):
 
     # Save the dictionary elements to the database
     for letter, words in tqdm(letters.items()):
-        let = add_letter(letter)
+        let = add_letter(letter, len(words))
         for word_id in range(len(words)):
             add_word(words[word_id], word_id, let)
 
 
-def add_letter(letter):
+def add_letter(letter, num_words=0):
     '''
     Saves a Letter object in the database.
     '''
-    let = Letter.objects.get_or_create(letter=letter, current_index=0)[0]
+    let = Letter.objects.get_or_create(letter=letter, current_index=0,
+                                       num_words=num_words)[0]
     let.save()
     return let
 

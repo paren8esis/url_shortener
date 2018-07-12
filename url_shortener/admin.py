@@ -3,7 +3,7 @@ from url_shortener.models import Letter, Word
 
 
 class LetterAdmin(admin.ModelAdmin):
-    list_display = ('letter', 'current_index')
+    list_display = ('letter', 'current_index', 'num_words')
 
 
 class WordAdmin(admin.ModelAdmin):

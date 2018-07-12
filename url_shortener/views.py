@@ -42,7 +42,7 @@ def index(request):
                 # attribute
                 new_path = Word.objects.filter(letter=letter_obj,
                                                word_id=letter_obj.current_index).first().word
-                if Word.objects.filter(letter=letter_obj).count() == letter_obj.current_index+1:
+                if letter_obj.current_index == letter_obj.num_words-1:
                     letter_obj.current_index = -1
                 else:
                     letter_obj.current_index += 1

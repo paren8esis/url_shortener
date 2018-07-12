@@ -101,10 +101,10 @@ class IndexViewTests(TestCase):
         '''
         # Populate the database with some sample objects
         from url_shortener.models import Letter, Word
-        let_a = Letter(letter='a', current_index=0)
+        let_a = Letter(letter='a', current_index=0, num_words=1)
         let_a.save()
         Word(word='aaa', word_id=0, letter=let_a).save()
-        let_b = Letter(letter='b', current_index=0)
+        let_b = Letter(letter='b', current_index=0, num_words=1)
         let_b.save()
         Word(word='baa', word_id=0, letter=let_b).save()
 
@@ -122,9 +122,9 @@ class IndexViewTests(TestCase):
         # Populate the database with some sample objects
         from url_shortener.models import Letter, Word
         Letter(letter='a', current_index=-1).save()
-        let_b = Letter(letter='b', current_index=0)
+        let_b = Letter(letter='b', current_index=0, num_words=1)
         let_b.save()
-        let_c = Letter(letter='c', current_index=0)
+        let_c = Letter(letter='c', current_index=0, num_words=1)
         let_c.save()
         Word(word='baa', word_id=0, letter=let_b).save()
         Word(word='caa', word_id=0, letter=let_c).save()
@@ -142,7 +142,7 @@ class IndexViewTests(TestCase):
         # Populate the database with some sample objects
         from url_shortener.models import Letter, Word
         Letter(letter='a', current_index=-1).save()
-        let = Letter(letter='b', current_index=0)
+        let = Letter(letter='b', current_index=0, num_words=1)
         let.save()
         Word(word='baa', word_id=0, letter=let).save()
 
@@ -157,17 +157,19 @@ class IndexViewTests(TestCase):
         incremented successfully when the word it points to is used.
         '''
         from url_shortener.models import Letter, Word
-        let = Letter(letter='a', current_index=0)
+        let = Letter(letter='a', current_index=0, num_words=2)
         let.save()
         Word(word='aaa', word_id=0, letter=let).save()
         Word(word='aaaaa', word_id=1, letter=let).save()
 
+        # Use first word
         self.client.post(reverse('index'),
                          {'url': 'https://www.techcrunch.com/abc'})
 
         let = Letter.objects.get(letter='a')
         self.assertEquals(let.current_index, 1)
 
+        # Use second word
         self.client.post(reverse('index'),
                          {'url': 'https://www.techcrunch.com/abc'})
 
