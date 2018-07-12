@@ -42,10 +42,9 @@ If you want to install the app in your own Django project, you must take the fol
    'widget_tweaks',
    ```
 2. In your project's `urls.py`:
-   - Insert the following imports:  
+   - Insert the following import:  
      ```
      from django.conf.urls import include
-     from url_shortener import views
      ```
    - Insert the following in the `urlpatterns` list:  
      `url(r'^url_shortener/', include('url_shortener.urls')),`
