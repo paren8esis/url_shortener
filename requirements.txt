@@ -1,5 +1,4 @@
 Django==2.0.7
-django-bootstrap3==10.0.1
 django-widget-tweaks==1.4.2
 pytz==2018.5
 tqdm==4.23.4
