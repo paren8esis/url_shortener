@@ -20,6 +20,11 @@ assumption: all words in the wordlist starting from "s" are occupied. So we look
 output3: http://example.com/oaf
 
 
+## Assumptions
+1. The URL entered by the user is strictly of the form `<scheme>://<host>/<path>`, so it has only one `<path>` and is not `<scheme>://<host>/<path1>/<path2>/../<pathN>`. If the user enters a URL of the latter form, then the app uses only the last path, aka `<pathN>`, for the shortening.
+2. The database is created once and no further insertions, deletions or updates are made.
+
+
 ## Requirements
 
 - Python==3.6.5  (It hasn't been tested with Python2.x but it should work fine with Python3.x)
