@@ -29,15 +29,36 @@ output3: http://example.com/oaf
 - pytz==2018.5
 - tqdm==4.23.4
 
+
 ## Installation
 
-1. Run the script `populate_database.py` located in the root directory giving as argument a .txt file containing all the words we would like to populate our database with.
+1. Run the script `populate_database.py` located in the root directory giving as argument a .txt file containing all the words you would like to populate your database with.
 
 2. Run the server with the command `python3 manage.py runserver` from the root directory.
+
+If you want to install the app in your own Django project, you must take the following steps:
+1. In your project's `settings.py` insert the following apps in the `INSTALLED_APPS` list:
+   ```
+   'url_shortener',
+   'widget_tweaks',
+   ```
+2. In your project's `urls.py`:
+   - Insert the following imports:  
+     ```
+     from django.conf.urls import include
+     from url_shortener import views
+     ```
+   - Insert the following in the `urlpatterns` list:  
+     `url(r'^url_shortener/', include('url_shortener.urls')),`
+3. Put the `url_shortener` directory inside your project's root directory.
+4. Put the `templates/url_shortener` directory inside your templates directory and the contents of `static/images` directory in your static images directory.
+5. To create the database, run the script `populate_database.py` inside your project's root directory giving as argument a .txt file containing all the words you would like to populate your database with.
+
 
 ## Tests
 
 Tests can be put into the /url_shortener/tests/ directory and run through `python3 manage.py test url_shortener` from the root directory.
+
 
 ## Screenshots
 ![index page](/images/index.png)
