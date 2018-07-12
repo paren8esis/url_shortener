@@ -24,7 +24,6 @@ output3: http://example.com/oaf
 
 - Python==3.6.5  (It hasn't been tested with Python2.x but it should work fine with Python3.x)
 - Django==2.0.7
-- django-bootstrap3==10.0.1
 - django-widget-tweaks==1.4.2
 - pytz==2018.5
 - tqdm==4.23.4
