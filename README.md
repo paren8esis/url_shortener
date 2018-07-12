@@ -57,7 +57,7 @@ If you want to install the app in your own Django project, you must take the fol
 
 ## Tests
 
-Tests can be put into the /url_shortener/tests/ directory and run through `python3 manage.py test url_shortener` from the root directory.
+Tests can be put into the `/url_shortener/tests/` directory and run through `python3 manage.py test url_shortener` from the root directory.
 
 
 ## Screenshots
