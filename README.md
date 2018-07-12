@@ -8,7 +8,7 @@ e.g. 'a' points to a list of words beginning with 'a', and so on.
 
 The app has an input view which takes as input a long URL of the following format: `<scheme>://<host>/<path>`. Then it parses the first letter of the first word of the `<path>` (aka, the first letter of the path) and creates a shortened URL using the first available record from the database. If all words are occupied, then it goes to the next letter of the path and iterates this process n-times, until it finds a non-occupied record to create a short URL with.
 
-# Examples
+## Examples
 - input: https://www.techcrunch.com/some-slug-here-starting-from-s  
 output: http://example.com/s
 
